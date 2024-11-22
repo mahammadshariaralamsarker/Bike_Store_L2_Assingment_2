@@ -12,14 +12,9 @@ const bikeSchema = new Schema<Bike>(
       required: true,
     },
     price: {
-      type: String,
+      type: Number,
       required: true,
-      validate: {
-        validator: function (this: Bike, v: number) {
-          return v > 0;
-        },
-        message: (props) => `${props.path} must be a positive number`,
-      },
+      min:[0,"Price must be a positive number"]
     },
     category: {
       type: String,

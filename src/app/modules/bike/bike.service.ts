@@ -5,7 +5,21 @@ const createBikeIntoDB= async(bike:Bike) => {
     const result = await BikeModel.create(bike)
     return result
 }
-
+const getBikeFromDB= async()=>{
+    const result = await BikeModel.find()
+    return result;
+}
+const getSingleBike = async(id:string)=>{
+    const result = await BikeModel.findById(id)
+    return result
+}
+const deleteBike = async (id:string)=>{
+    const result = BikeModel.findByIdAndDelete(id)
+    return result;
+}
 export const BikeServices= {
-    createBikeIntoDB
+    createBikeIntoDB,
+    getBikeFromDB,
+    getSingleBike,
+    deleteBike
 }

@@ -7,7 +7,7 @@ export enum BikeCategory {
 export interface Bike {
     name: string;
     brand: string;
-    price: string;
+    price: number;
     category: BikeCategory;
     description: string;
     quantity: number;

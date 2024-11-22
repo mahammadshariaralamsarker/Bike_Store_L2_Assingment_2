@@ -1,9 +1,7 @@
 import { Request, Response } from "express";
 import { BikeServices } from "./bike.service";
-import BikeSchemaZ from "./bike.validation";
 
 const createBike = async (req: Request, res: Response) => {
-  
   try {
     const bike = req.body;
     const result = await BikeServices.createBikeIntoDB(bike);
@@ -13,16 +11,66 @@ const createBike = async (req: Request, res: Response) => {
       data: result,
     });
   } catch (error: any) {
-    res.status(500).json({
-      message: error.message || "Validation failed",
+    res.send({
+      message:"Validation failed",
       success: false,
-      error: error,
+      result:error,
     });
-    if (error) {
-      console.log(error);
-    }
+    
   }
 };
+const getBike = async (req: Request, res: Response) => {
+  try {
+    const result = await BikeServices.getBikeFromDB();
+    res.send({
+      message: "Bike Received successfully",
+      success: true,
+      result,
+    });
+  } catch (error: any) {
+    res.status(500).json({
+      message: error.message,
+      success: false,
+      error,
+    });
+  }
+};
+const getSingleBike = async (req: Request, res: Response) => {
+  const id = req.params.id;
+  const result = await BikeServices.getSingleBike(id);
+  try {
+    res.send({
+      message: "Single Bike Received successfully",
+      success: true,
+      result,
+    });
+  } catch (error: any) {
+    res.status(500).json({
+      message: error.message,
+      success: false,
+      error,
+    });
+  }
+};
+const deleteBike = async (req:Request, res:Response)=>{
+  const id = req.params.id;
+  const result = await BikeServices.deleteBike(id)
+  try {
+    res.send({
+      message: "Single Bike Deleted successfully",
+        success: true,
+        
+    })
+  } catch (error:any) {
+    res.status(500).json({
+      message: error.message,
+      success: false,
+      error,
+  })
+}
+}
 export const bikeController = {
   createBike,
+  getBike,
+  getSingleBike,deleteBike
 };
