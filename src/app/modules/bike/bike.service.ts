@@ -17,9 +17,14 @@ const deleteBike = async (id:string)=>{
     const result = BikeModel.findByIdAndDelete(id)
     return result;
 }
+const updateBike  = async (id:string, Updateddata:Bike)=>{
+    const result = BikeModel.findByIdAndUpdate(id,Updateddata,{new:true})
+    return result
+
+}
 export const BikeServices= {
     createBikeIntoDB,
     getBikeFromDB,
     getSingleBike,
-    deleteBike
+    deleteBike,updateBike
 }
