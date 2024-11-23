@@ -37,8 +37,8 @@ const getBike = async (req: Request, res: Response) => {
   }
 };
 const getSingleBike = async (req: Request, res: Response) => {
-  const id = req.params.id;
-  const result = await BikeServices.getSingleBike(id);
+  const productId = req.params.productId;
+  const result = await BikeServices.getSingleBike(productId);
   try {
     res.send({
       message: "Single Bike Received successfully",
@@ -53,6 +53,24 @@ const getSingleBike = async (req: Request, res: Response) => {
     });
   }
 };
+// get single bike by name 
+const getSingleBikeByQuery= async (req:Request, res:Response)=>{
+  const query = req.params.name;
+  const result = await BikeServices.getSingleBikeByQuery(query);
+  try {
+    res.send({
+      message: "Single Bike by query Received successfully",
+      success: true,
+      result,
+    });
+  } catch (error: any) {
+    res.status(500).json({
+      message: error.message,
+      success: false,
+      error,
+    });
+  }
+}
 const deleteBike = async (req:Request, res:Response)=>{
   const id = req.params.id;
   const result = await BikeServices.deleteBike(id)
@@ -60,6 +78,7 @@ const deleteBike = async (req:Request, res:Response)=>{
     res.send({
       message: "Single Bike Deleted successfully",
         success: true,
+        data:{}
         
     })
   } catch (error:any) {
@@ -71,10 +90,9 @@ const deleteBike = async (req:Request, res:Response)=>{
 }
 }
 const updateBike= async(req:Request, res:Response)=>{
-  const id = req.params.productId
+  const productId = req.params.productId
   const updatedData = req.body;
-  const result = await BikeServices.updateBike(id,updatedData)
-  
+  const result = await BikeServices.updateBike(productId,updatedData)
     try{
       res.send({
         success:true,
@@ -95,5 +113,5 @@ const updateBike= async(req:Request, res:Response)=>{
 export const bikeController = {
   createBike,
   getBike,
-  getSingleBike,deleteBike,updateBike
+  getSingleBike,deleteBike,updateBike,getSingleBikeByQuery
 };

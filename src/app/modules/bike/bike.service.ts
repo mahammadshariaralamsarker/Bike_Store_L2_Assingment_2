@@ -13,6 +13,11 @@ const getSingleBike = async(id:string)=>{
     const result = await BikeModel.findById(id)
     return result
 }
+// get single bike by name 
+const getSingleBikeByQuery = async(name:string)=>{
+    const result = await BikeModel.findOne({name})
+    return result
+}
 const deleteBike = async (id:string)=>{
     const result = BikeModel.findByIdAndDelete(id)
     return result;
@@ -26,5 +31,5 @@ export const BikeServices= {
     createBikeIntoDB,
     getBikeFromDB,
     getSingleBike,
-    deleteBike,updateBike
+    deleteBike,updateBike,getSingleBikeByQuery
 }
