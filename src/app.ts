@@ -9,7 +9,7 @@ app.use(express.json())
 app.use(cors())
 
 
-app.use('/api/v1/bike',bikeRoutes)
-app.use('/api/v1/orders',OrderRoutes)
+app.use('/api',bikeRoutes)
+app.use('/api',OrderRoutes)
 
 export default app

@@ -34,7 +34,10 @@ const bikeSchema = new Schema<Bike>(
     },
   },
   { 
-    timestamps: true 
-  });
+    timestamps: true ,
+    versionKey:false
+  },
+  
+);
 
 export const BikeModel = model<Bike>("Bike", bikeSchema);

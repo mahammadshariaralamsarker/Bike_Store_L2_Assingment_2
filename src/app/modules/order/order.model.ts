@@ -5,7 +5,7 @@ const ordersSchema = new Schema<Order>({
         email:{
             type:String,
             required:true,
-            unique:true
+            // unique:true
         },
         product:{
             type:String,
@@ -15,9 +15,13 @@ const ordersSchema = new Schema<Order>({
             type:Number,
             required:true,
         },
+        quantity:{
+            type:Number,
+        }
     },
     {
-        timestamps:true
+        timestamps:true,
+        versionKey:false
     }
 )
 
