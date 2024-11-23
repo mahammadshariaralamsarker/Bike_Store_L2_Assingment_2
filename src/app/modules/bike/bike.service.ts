@@ -1,9 +1,10 @@
+import { Order } from "../order/order.interface"
 import { Bike } from "./bike.interface"
 import { BikeModel } from "./bike.model"
 
 const createBikeIntoDB= async(bike:Bike) => {
-    const result = await BikeModel.create(bike)
-    return result
+    const createBike = await BikeModel.create(bike)
+    return createBike
 }
 const getBikeFromDB= async()=>{
     const result = await BikeModel.find()
@@ -13,6 +14,8 @@ const getSingleBike = async(id:string)=>{
     const result = await BikeModel.findById(id)
     return result
 }
+
+
 // get single bike by name 
 const getSingleBikeByQuery = async(name:string)=>{
     const result = await BikeModel.findOne({name})

@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import { BikeServices } from "./bike.service";
-
+import { OrderService } from "../order/order.service";
 const createBike = async (req: Request, res: Response) => {
   try {
     const bike = req.body;
@@ -9,6 +9,7 @@ const createBike = async (req: Request, res: Response) => {
       message: "Bike created successfully",
       success: true,
       data: result,
+      
     });
   } catch (error: any) {
     console.log(error);

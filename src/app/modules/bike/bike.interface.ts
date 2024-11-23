@@ -11,5 +11,5 @@ export interface Bike {
     category: BikeCategory;
     description: string;
     quantity: number;
-    inStock: boolean;    
+    inStock: boolean;  
   }

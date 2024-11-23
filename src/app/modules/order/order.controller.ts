@@ -1,11 +1,14 @@
 
 import { Request, Response } from "express";
 import { OrderService } from "./order.service";
+import { BikeModel } from "../bike/bike.model";
+import { BikeServices } from "../bike/bike.service";
+import { bikeController } from "../bike/bike.controller";
 
 const createOrder = async (req:Request, res:Response) => {
     try {
       const order = req.body;
-      delete order.quantity;
+      const findData = await BikeModel.findById(order.product)
       const result = await OrderService.createOrderIntoDB(order);
       res.status(200).json({
         message: "order created successfully",

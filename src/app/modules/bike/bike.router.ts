@@ -6,7 +6,7 @@ const router = express.Router()
 
 router.post('/products',bikeController.createBike)
 // get single Bike by query
-router.get('/products/:name',bikeController.getSingleBikeByQuery)
+// router.get('/products/:name',bikeController.getSingleBikeByQuery)
 
 router.get('/products/:productId',bikeController.getSingleBike)
 router.get('/products',bikeController.getBike)

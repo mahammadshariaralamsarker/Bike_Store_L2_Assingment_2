@@ -31,7 +31,7 @@ const bikeSchema = new Schema<Bike>(
     inStock: {
       type: Boolean,
       required: true,
-    },
+    }
   },
   { 
     timestamps: true ,
