@@ -11,10 +11,11 @@ const createBike = async (req: Request, res: Response) => {
       data: result,
     });
   } catch (error: any) {
-    res.send({
+    console.log(error);
+    res.status(404).send({
       message:"Validation failed",
       success: false,
-      result:error,
+      error,
     });
     
   }
@@ -89,6 +90,8 @@ const updateBike= async(req:Request, res:Response)=>{
     })
    }
 }
+
+
 export const bikeController = {
   createBike,
   getBike,

@@ -20,8 +20,8 @@ const deleteBike = async (id:string)=>{
 const updateBike  = async (id:string, Updateddata:Bike)=>{
     const result = BikeModel.findByIdAndUpdate(id,Updateddata,{new:true})
     return result
-
 }
+
 export const BikeServices= {
     createBikeIntoDB,
     getBikeFromDB,

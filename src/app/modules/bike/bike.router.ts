@@ -9,4 +9,6 @@ router.get('/products/:id',bikeController.getSingleBike)
 router.get('/',bikeController.getBike)
 router.delete('/products/:id',bikeController.deleteBike)
 router.put('/products/:id',bikeController.updateBike)
+
+
 export const bikeRoutes = router;
