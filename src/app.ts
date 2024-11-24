@@ -11,6 +11,6 @@ app.use(cors())
 
 app.use('/api',bikeRoutes)
 app.use('/api',OrderRoutes)
-app.get('/',(req,res)=>{res.send("this is code")})
+app.get('/',(req,res)=>{res.send("The Bike Store Server is Running")})
 
 export default app
