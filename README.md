@@ -28,7 +28,7 @@ Set up your environment variables:
 
 Create a .env file in the root directory and add:
 PORT=5000
-DATABASE_URL=mongodb+srv://BikeStore:cIQBBdMpGpJB8BJZ@cluster0.mh62rbj.mongodb.net/BikeStore?retryWrites=true&w=majority&appName=Cluster0
+DATABASE_URL=make it from your mongodb cluster 
 
 Running the Project
 To run the project in development mode:

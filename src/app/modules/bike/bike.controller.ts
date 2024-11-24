@@ -20,27 +20,10 @@ const createBike = async (req: Request, res: Response) => {
     
   }
 };
-const getSingleBikeByQuery= async (req:Request, res:Response)=>{
-  const searchTerm  = req.params.searchTerm;
-  console.log(searchTerm);
-  const result = await BikeServices.getSingleBikeByQuery(searchTerm);
-  try {
-    res.send({
-      message: "Single Bike by query Received successfully",
-      success: true,
-      result,
-    });
-  } catch (error: any) {
-    res.status(500).json({
-      message: error.message,
-      success: false,
-      error,
-    });
-  }
-}
 const getBike = async (req: Request, res: Response) => {
+  const {searchTerm} =req.query
   try {
-    const result = await BikeServices.getBikeFromDB();
+    const result = await BikeServices.getBikeFromDB(searchTerm as string);
     res.send({
       message: "Bike Received successfully",
       success: true,
@@ -114,5 +97,5 @@ const updateBike= async(req:Request, res:Response)=>{
 export const bikeController = {
   createBike,
   getBike,
-  getSingleBike,deleteBike,updateBike,getSingleBikeByQuery
+  getSingleBike,deleteBike,updateBike,
 };
