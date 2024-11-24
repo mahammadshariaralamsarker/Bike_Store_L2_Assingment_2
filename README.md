@@ -34,6 +34,3 @@ Running the Project
 To run the project in development mode:
 npm run start:dev
 This will start the server on http://localhost:5000.
-
-
-trt

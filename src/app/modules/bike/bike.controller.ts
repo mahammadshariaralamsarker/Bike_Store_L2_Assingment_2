@@ -71,7 +71,6 @@ const getSingleBike = async (req: Request, res: Response) => {
     });
   }
 };
-// get single bike by name 
 
 const deleteBike = async (req:Request, res:Response)=>{
   const id = req.params.id;
