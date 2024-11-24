@@ -30,7 +30,7 @@ Create a .env file in the root directory and add:
 PORT=5000
 DATABASE_URL=mongodb+srv://BikeStore:cIQBBdMpGpJB8BJZ@cluster0.mh62rbj.mongodb.net/BikeStore?retryWrites=true&w=majority&appName=Cluster0
 
-Running the Project
+Running the Project 
 To run the project in development mode:
 npm run start:dev
 This will start the server on http://localhost:5000.
