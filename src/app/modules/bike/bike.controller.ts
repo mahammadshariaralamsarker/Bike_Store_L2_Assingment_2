@@ -25,7 +25,7 @@ const getBike = async (req: Request, res: Response) => {
   try {
     const result = await BikeServices.getBikeFromDB(searchTerm as string);
     res.send({
-      message: "Bike Received successfully",
+      message: "Bikes retrieved successfully",
       success: true,
       result,
     });
@@ -42,7 +42,7 @@ const getSingleBike = async (req: Request, res: Response) => {
   const result = await BikeServices.getSingleBike(productId);
   try {
     res.send({
-      message: "Single Bike Received successfully",
+      message: "Bike retrieved successfully",
       success: true,
       result,
     });
@@ -60,7 +60,7 @@ const deleteBike = async (req:Request, res:Response)=>{
   const result = await BikeServices.deleteBike(id)
   try {
     res.send({
-      message: "Single Bike Deleted successfully",
+      message: "Bike deleted successfully",
         success: true,
         data:{}
         
@@ -80,7 +80,7 @@ const updateBike= async(req:Request, res:Response)=>{
     try{
       res.send({
         success:true,
-        message:"updated data successfull",
+        message:"Bike updated successfully",
         result
       })
     }

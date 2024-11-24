@@ -22,7 +22,7 @@ const ordersSchema = new Schema<Order>({
     },
     {
         timestamps:true,
-        versionKey:false
+        versionKey:false 
     })
 
 export const OrderModel = model<Order>("Order",ordersSchema)
