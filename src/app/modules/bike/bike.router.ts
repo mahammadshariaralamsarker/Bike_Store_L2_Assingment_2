@@ -14,4 +14,4 @@ router.delete('/products/:productId',bikeController.deleteBike)
 router.put('/products/:productId',bikeController.updateBike)
 
 
-export const bikeRoutes = router;
+export const bikeRoutes = router; 
