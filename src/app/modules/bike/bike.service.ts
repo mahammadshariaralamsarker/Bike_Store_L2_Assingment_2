@@ -14,8 +14,6 @@ const getSingleBike = async(id:string)=>{
     const result = await BikeModel.findById(id)
     return result
 }
-
-
 // get single bike by name 
 const getSingleBikeByQuery = async(name:string)=>{
     const result = await BikeModel.findOne({name})

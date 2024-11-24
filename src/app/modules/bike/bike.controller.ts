@@ -1,6 +1,5 @@
 import { Request, Response } from "express";
 import { BikeServices } from "./bike.service";
-import { OrderService } from "../order/order.service";
 const createBike = async (req: Request, res: Response) => {
   try {
     const bike = req.body;
@@ -21,6 +20,24 @@ const createBike = async (req: Request, res: Response) => {
     
   }
 };
+const getSingleBikeByQuery= async (req:Request, res:Response)=>{
+  const searchTerm  = req.params.searchTerm;
+  console.log(searchTerm);
+  const result = await BikeServices.getSingleBikeByQuery(searchTerm);
+  try {
+    res.send({
+      message: "Single Bike by query Received successfully",
+      success: true,
+      result,
+    });
+  } catch (error: any) {
+    res.status(500).json({
+      message: error.message,
+      success: false,
+      error,
+    });
+  }
+}
 const getBike = async (req: Request, res: Response) => {
   try {
     const result = await BikeServices.getBikeFromDB();
@@ -55,23 +72,7 @@ const getSingleBike = async (req: Request, res: Response) => {
   }
 };
 // get single bike by name 
-const getSingleBikeByQuery= async (req:Request, res:Response)=>{
-  const query = req.params.name;
-  const result = await BikeServices.getSingleBikeByQuery(query);
-  try {
-    res.send({
-      message: "Single Bike by query Received successfully",
-      success: true,
-      result,
-    });
-  } catch (error: any) {
-    res.status(500).json({
-      message: error.message,
-      success: false,
-      error,
-    });
-  }
-}
+
 const deleteBike = async (req:Request, res:Response)=>{
   const id = req.params.id;
   const result = await BikeServices.deleteBike(id)
